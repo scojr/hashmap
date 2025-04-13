@@ -75,10 +75,26 @@ class LinkedList {
     return index;
   }
 
-  getEntries() {
-    let entries;
+  getKeys() {
+    let keys = [];
     this.iterateList((node, i) => {
-      entries = [node.key, node.value];
+      keys = keys.concat([node.key]);
+    });
+    return keys;
+  }
+
+  getValues() {
+    let values = [];
+    this.iterateList((node, i) => {
+      values = values.concat([node.value]);
+    });
+    return values;
+  }
+
+  getEntries() {
+    let entries = [];
+    this.iterateList((node, i) => {
+      entries.push([node.key, node.value]);
     });
     return entries;
   }
